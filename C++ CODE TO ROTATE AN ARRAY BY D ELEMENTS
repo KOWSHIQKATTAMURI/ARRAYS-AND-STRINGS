@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+void reverse(int input[], int start, int end)
+{
+    for(int i=start; i<=end; i++)
+    {
+        int temp = input[i];
+        input[i] = input[end];
+        input[end] = temp;
+        start++;
+        end--;
+    }
+}
+void rotate(int *input, int d, int size)
+{
+    int start=0;
+   reverse(input,start, size-1);
+    reverse(input, start, size-1-d);
+    reverse(input, size-d, size-1);
+}
+
+int main()
+{
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int size;
+		cin >> size;
+		int *input = new int[size];
+		for (int i = 0; i < size; ++i)
+		{
+			cin >> input[i];
+		}
+		int d;
+		cin >> d;
+		rotate(input, d, size);
+		for (int i = 0; i < size; ++i)
+		{
+			cout << input[i] << " ";
+		}
+		delete[] input;
+		cout << endl;
+	}
+	return 0;
+}
