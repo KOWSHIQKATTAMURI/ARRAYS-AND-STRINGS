@@ -1,0 +1,49 @@
+#include <iostream>
+#include "solution.h"
+using namespace std;
+
+void reverseStringWordWise(char input[]) {
+    int count = 0;
+    for(int i = 0; input[i] != '\0';i++){
+        count++;
+    }
+    int i = 0, j = count - 1;
+    while(i<j){
+        char temp = input[i];
+        input[i] = input[j];
+        input[j] = temp;
+        i++;
+        j--;
+    }
+    int p = 0;
+    int k = 0;
+    while(p<count){
+    if(input[p] == ' '){
+        int m = p - 1;
+           while(k<m){
+               char kee = input[k];
+               input[k] = input[m];
+               input[m] = kee;
+               k++;
+               m--;
+           }
+           k = p + 1;
+    }
+    p++;
+  }
+      int m = p - 1;
+           while(k<m){
+               char kee = input[k];
+               input[k] = input[m];
+               input[m] = kee;
+               k++;
+               m--;
+           }
+}
+
+int main() {
+    char input[1000];
+    cin.getline(input, 1000);
+    reverseStringWordWise(input);
+    cout << input << endl;
+}
