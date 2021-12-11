@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+void reverseEachWord(char input[]) {
+    int count = 0;
+    for(int i = 0; input[i] != '\0';i++){
+        count++;
+    }
+    int i = 0, j = count - 1;
+    int p = 0;
+    int k = 0;
+    while(p<count){
+    if(input[p] == ' '){
+        int m = p - 1;
+           while(k<m){
+               char kee = input[k];
+               input[k] = input[m];
+               input[m] = kee;
+               k++;
+               m--;
+           }
+           k = p + 1;
+    }
+    p++;
+  }
+      int m = p - 1;
+           while(k<m){
+               char kee = input[k];
+               input[k] = input[m];
+               input[m] = kee;
+               k++;
+               m--;
+           }
+}
+
+
+int main() {
+    int size = 1e6;
+    char str[size];
+    cin.getline(str, size);
+    reverseEachWord(str);
+    cout << str;
+}
