@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+void printSubstrings(char input[]) {
+    for(int k = 0; k < strlen(input);k++){
+for(int i = k; input[i]!='\0';i++){
+    for(int j = k; j<=i;j++){
+        cout << input[j];
+    }
+    cout << endl;
+  }
+ }
+}
+
+int main() {
+    int size = 1e6;
+    char str[size];
+    cin >> str;
+    printSubstrings(str);
+}
